@@ -45,6 +45,7 @@ public class CardGame {
 			System.out.println(c);
 
 		System.out.println("pairs is " + checkFor2Kind());
+		System.out.println("Three of a kind: " + checkFor3Kind()); // For 3 king
 
 	}//end main
 
@@ -80,4 +81,24 @@ public class CardGame {
 		}//end outer for
 		return false;
 	}
-}//end class
+
+	// Check for three of a kind in the player's hand, one of 21+3 side bet Ye Yuan
+public static boolean checkFor3Kind() {
+    for (int i = 0; i < playerCards.size(); i++) {
+        int count = 0;
+        Card current = playerCards.get(i);
+
+        for (int j = 0; j < playerCards.size(); j++) {
+            if (current.equals(playerCards.get(j))) {
+                count++;
+            }
+        }
+
+        if (count == 3) {
+            return true;
+        }
+    }
+    return false;
+}
+
+}//end class test
